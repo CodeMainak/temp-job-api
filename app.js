@@ -1,4 +1,8 @@
-require('dotenv').config({ path: './.env' });
+const dotenv =require('dotenv')
+dotenv.config(`${process.env.JWT_SECRET}`);
+dotenv.config(`${process.env.JWT_LIFETIME}`);
+
+
 require('express-async-errors');
 
 // extra security packages
