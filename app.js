@@ -1,7 +1,4 @@
-const dotenv =require('dotenv')
-dotenv.config(`${process.env.JWT_SECRET}`);
-dotenv.config(`${process.env.JWT_LIFETIME}`);
-
+const dotenv =require('dotenv').config();
 
 require('express-async-errors');
 
@@ -56,6 +53,7 @@ const port = process.env.PORT || 5000;
 
 const start = async () => {
   try {
+    console.log(process.env.MONGO_URI)
     await connectDB(process.env.MONGO_URI);
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
